@@ -1,3 +1,116 @@
-body h1{
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body h1 {
   color: red;
+}
+
+.klasa {
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 2px 4px 4px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#klasa1 {
+  background-color: rgb(255, 0, 0);
+}
+
+#klasa2 {
+  background-color: rgb(0, 255, 0);
+}
+
+#klasa3 {
+  background-color: rgb(0, 0, 255);
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.box {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 4px 4px 4px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 2px 4px 8px;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.nav-links li {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+}
+
+.nav-links a {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+  background-color: red;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.nav-links ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.pic-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top:200px ;
+  background-color: transparent;
+  border-top: 3px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+.pic1 {
+  background-color: gray;
+  margin-top: 5px;
+}
+
+.pic2 {
+  background-color: lightblue;
+  margin-top: 5px;
+}
+
+.pic-container img {
+  background: transparent;
+}
+
+@media only screen and (max-width: 900px) {
+
+.nav-links {
+  display: block;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding-left: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-bottom: 20px;
+}
+
 }
