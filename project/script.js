@@ -1,5 +1,5 @@
 let currentScreen = 0;
-
+document.getElementById("screen2").style.display = "none";
 document.querySelector(".startButton").addEventListener("click", function () {
   if (currentScreen === 0) {
     document.getElementById("screen1").style.display = "block";
@@ -10,9 +10,7 @@ document.querySelector(".startButton").addEventListener("click", function () {
     document.getElementById("screen2").style.display = "block";
     currentScreen++;
   }
-
-})
-
+});
 
 function getStarRating(ratingValue) {
   const fullStar = '<img src="Star 3.png" id="star" alt="Full Star">';
@@ -20,20 +18,16 @@ function getStarRating(ratingValue) {
   let fullStars = '';
   let emptyStars = '';
 
-  // Generate the full stars
   for (let i = 0; i < Math.floor(ratingValue); i++) {
     fullStars += fullStar;
   }
 
-  // Generate the empty stars
   for (let i = 0; i < 5 - Math.floor(ratingValue); i++) {
     emptyStars += emptyStar;
   }
 
-  // Return the combination of full and empty stars
   return fullStars + emptyStars;
 }
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const screen2 = document.getElementById("screen2");
@@ -50,20 +44,56 @@ document.addEventListener("DOMContentLoaded", () => {
         const imagePath = `${property.thumbnail.dir}/${property.thumbnail.filename}`;
 
         propertyDiv.innerHTML = `
-          <div class ="property">
-            <img src="${imagePath}" alt="${property.name} id="slika1">
-              <div class ="card">
-                <div class ="payment">
-                  <p>Weekly Payment: $${property.options.price.weekly_value}</p>
-                </div>
-                <div class ="other">
-                  <h2>${property.name}</h2>
-                  <p><img src="avatars/pete_agent.png" alt="Agent Avatar" id="agentAvatar"> ${property.options.agent.name}</p>                  <span><img src="svg/icons/icon-location.svg" id="iconLocation"> ${property.options.info.text}</span>
-                  <p>${getStarRating(property.options.rating.value)} (${property.options.rating.review_amount} reviews)</p>
-                </div>
-              </div>
+        <div class="property">
+          <div class="property-picture">
+            <img src="${imagePath}" alt="${property.name}" class="property-image" id="slika1">
           </div>
-        `;
+          <div class="card">
+            <div class="payment">
+              <p class="inPay">$${property.options.price.weekly_value}</p>
+              <p class="inPay2">per week</p>
+            </div>
+            <div class="other">
+              <h2>${property.name}</h2>
+              <p>
+                <img src="avatars/pete_agent.png" alt="Agent Avatar" id="agentAvatar">
+                ${property.options.agent.name}
+              </p>
+              <span>
+                <img src="svg/icons/icon-location.svg" id="iconLocation">
+                ${property.options.info.text}
+              </span>
+              <p class="revies">
+                ${getStarRating(property.options.rating.value)}
+                (${property.options.rating.review_amount} reviews)
+              </p>
+            </div>
+          </div>
+        </div>
+      `;
+
+        const imageElement = propertyDiv.querySelector(".property-picture");
+
+        imageElement.addEventListener("click", () => {
+          const allPropertyDivs = screen2.querySelectorAll(".property");
+          allPropertyDivs.forEach(div => {
+            const propPic = div.querySelector(".property-picture");
+            const checkmark = div.querySelector(".checkmark-overlay");
+            if (checkmark) {
+              checkmark.remove();
+            }
+            propPic.classList.remove("clicked");
+          });
+
+
+          const propPic = propertyDiv.querySelector(".property-picture");
+          const checkmarkOverlay = document.createElement("img");
+          checkmarkOverlay.src = "svg/icons/icon-checkmark.svg";
+          checkmarkOverlay.className = "checkmark-overlay";
+          propertyDiv.appendChild(checkmarkOverlay);
+
+          propPic.classList.add("clicked"); 
+        });
 
         screen2.appendChild(propertyDiv);
       });
@@ -71,7 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => {
       console.error("Error loading JSON data:", error);
     });
-    
 });
-
-
