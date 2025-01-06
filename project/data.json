@@ -1,0 +1,1170 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "Housing",
+      "color": "#be1e2d"
+    },
+    {
+      "id": 1,
+      "name": "Car",
+      "color": "#107fc4"
+    },
+    {
+      "id": 5,
+      "name": "Clothing",
+      "color": "#111222"
+    }
+  ],
+  "screens": {
+    "realEstate": {
+      "screen_id": 2,
+      "data": [
+        {
+          "id": "real_estate__property_1",
+          "name": "Starter",
+          "description": null,
+          "category_id": 0,
+          "thumbnail": {
+            "dir": "properties",
+            "filename": "property_1_starter.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": true,
+              "name": "Pete Agent",
+              "avatar": {
+                "dir": "avatars",
+                "filename": "pete_agent.png"
+              }
+            },
+            "rating": {
+              "exists": true,
+              "value": 3,
+              "review_amount": 20
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 343.86
+                },
+                {
+                  "name": "Loan Length (years)",
+                  "value": "25"
+                },
+                {
+                  "name": "Interest Rate",
+                  "value": "3%"
+                },
+                {
+                  "name": "Facilities (%s)",
+                  "value": 50
+                },
+                {
+                  "name": "Council Fees (%s)",
+                  "value": 20
+                },
+                {
+                  "name": "Return",
+                  "value": "5%"
+                },
+                {
+                  "name": "Deposit",
+                  "value": "10-20%"
+                },
+                {
+                  "name": "Legals / SD / LMI",
+                  "value": "10%"
+                }
+              ]
+            },
+            "info": {
+              "exists": true,
+              "text": "Outer City",
+              "icon": {
+                "dir": "icons",
+                "filename": "icon-location.svg"
+              }
+            },
+            "meta": {
+              "exists": false,
+              "items": []
+            },
+            "price": {
+              "exists": true,
+              "value": 25000,
+              "weekly_value": 285
+            }
+          }
+        },
+        {
+          "id": "real_estate__property_2",
+          "name": "Flex",
+          "description": null,
+          "category_id": 0,
+          "thumbnail": {
+            "dir": "properties",
+            "filename": "property_2_flex.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": true,
+              "name": "Pete Agent",
+              "avatar": {
+                "dir": "avatars",
+                "filename": "pete_agent.png"
+              }
+            },
+            "rating": {
+              "exists": true,
+              "value": 4,
+              "review_amount": 44
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 534.89
+                },
+                {
+                  "name": "Loan Length (years)",
+                  "value": "25"
+                },
+                {
+                  "name": "Interest Rate",
+                  "value": "3%"
+                },
+                {
+                  "name": "Facilities (%s)",
+                  "value": 100
+                },
+                {
+                  "name": "Council Fees (%s)",
+                  "value": 25
+                },
+                {
+                  "name": "Return",
+                  "value": "5%"
+                },
+                {
+                  "name": "Deposit",
+                  "value": "10-20%"
+                },
+                {
+                  "name": "Legals / SD / LMI",
+                  "value": "10%"
+                }
+              ]
+            },
+            "info": {
+              "exists": true,
+              "text": "Outer City",
+              "icon": {
+                "dir": "icons",
+                "filename": "icon-location.svg"
+              }
+            },
+            "meta": {
+              "exists": false,
+              "items": []
+            },
+            "price": {
+              "exists": true,
+              "value": 32000,
+              "weekly_value": 400
+            }
+          }
+        },
+        {
+          "id": "real_estate__property_3",
+          "name": "Midtown",
+          "description": null,
+          "category_id": 0,
+          "thumbnail": {
+            "dir": "properties",
+            "filename": "property_3_midtown.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": true,
+              "name": "Pete Agent",
+              "avatar": {
+                "dir": "avatars",
+                "filename": "pete_agent.png"
+              }
+            },
+            "rating": {
+              "exists": true,
+              "value": 5,
+              "review_amount": 72
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 731.38
+                },
+                {
+                  "name": "Loan Length (years)",
+                  "value": "25"
+                },
+                {
+                  "name": "Interest Rate",
+                  "value": "3%"
+                },
+                {
+                  "name": "Facilities (%s)",
+                  "value": 150
+                },
+                {
+                  "name": "Council Fees (%s)",
+                  "value": 30
+                },
+                {
+                  "name": "Return",
+                  "value": "4%"
+                },
+                {
+                  "name": "Deposit",
+                  "value": "10-20%"
+                },
+                {
+                  "name": "Legals / SD / LMI",
+                  "value": "10%"
+                }
+              ]
+            },
+            "info": {
+              "exists": true,
+              "text": "Inner City",
+              "icon": {
+                "dir": "icons",
+                "filename": "icon-location.svg"
+              }
+            },
+            "meta": {
+              "exists": false,
+              "items": []
+            },
+            "price": {
+              "exists": true,
+              "value": 40000,
+              "weekly_value": 530
+            }
+          }
+        },
+        {
+          "id": "real_estate__property_4",
+          "name": "Prestige",
+          "description": null,
+          "category_id": 0,
+          "thumbnail": {
+            "dir": "properties",
+            "filename": "property_4_prestige.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": true,
+              "name": "Pete Agent",
+              "avatar": {
+                "dir": "avatars",
+                "filename": "pete_agent.png"
+              }
+            },
+            "rating": {
+              "exists": true,
+              "value": 5,
+              "review_amount": 112
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 1309.93
+                },
+                {
+                  "name": "Loan Length (years)",
+                  "value": "25"
+                },
+                {
+                  "name": "Interest Rate",
+                  "value": "3%"
+                },
+                {
+                  "name": "Facilities (%s)",
+                  "value": 300
+                },
+                {
+                  "name": "Council Fees (%s)",
+                  "value": 40
+                },
+                {
+                  "name": "Return",
+                  "value": "3%"
+                },
+                {
+                  "name": "Deposit",
+                  "value": "10-20%"
+                },
+                {
+                  "name": "Legals / SD / LMI",
+                  "value": "10%"
+                }
+              ]
+            },
+            "info": {
+              "exists": true,
+              "text": "Inner City",
+              "icon": {
+                "dir": "icons",
+                "filename": "icon-location.svg"
+              }
+            },
+            "meta": {
+              "exists": false,
+              "items": []
+            },
+            "price": {
+              "exists": true,
+              "value": 55000,
+              "weekly_value": 680
+            }
+          }
+        },
+        {
+          "id": "real_estate__property_5",
+          "name": "Vista",
+          "description": null,
+          "category_id": 0,
+          "thumbnail": {
+            "dir": "properties",
+            "filename": "property_5_vista.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": true,
+              "name": "Pete Agent",
+              "avatar": {
+                "dir": "avatars",
+                "filename": "pete_agent.png"
+              }
+            },
+            "rating": {
+              "exists": true,
+              "value": 5,
+              "review_amount": 212
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 1309.93
+                },
+                {
+                  "name": "Loan Length (years)",
+                  "value": "25"
+                },
+                {
+                  "name": "Interest Rate",
+                  "value": "3%"
+                },
+                {
+                  "name": "Facilities (%s)",
+                  "value": 385
+                },
+                {
+                  "name": "Council Fees (%s)",
+                  "value": 40
+                },
+                {
+                  "name": "Return",
+                  "value": "4%"
+                },
+                {
+                  "name": "Deposit",
+                  "value": "10-20%"
+                },
+                {
+                  "name": "Legals / SD / LMI",
+                  "value": "10%"
+                }
+              ]
+            },
+            "info": {
+              "exists": true,
+              "text": "Inner City",
+              "icon": {
+                "dir": "icons",
+                "filename": "icon-location.svg"
+              }
+            },
+            "meta": {
+              "exists": false,
+              "items": []
+            },
+            "price": {
+              "exists": true,
+              "value": 55000,
+              "weekly_value": 950
+            }
+          }
+        }
+      ]
+    },
+    "carsForSale": {
+      "screen_id": 3,
+      "data": [
+        {
+          "id": "cars_for_sale__mazda",
+          "name": "Mazda 3",
+          "description": "2008 Model",
+          "category_id": 1,
+          "thumbnail": {
+            "dir": "cars",
+            "filename": "car_1_mazda.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": false,
+              "name": null,
+              "avatar": {}
+            },
+            "rating": {
+              "exists": false,
+              "value": null,
+              "review_amount": null
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 38
+                },
+                {
+                  "name": "%s Maintenance",
+                  "value": 10
+                },
+                {
+                  "name": "%s Insurance",
+                  "value": 14
+                },
+                {
+                  "name": "%s CTP",
+                  "value": 14
+                },
+                {
+                  "name": "%s Registration",
+                  "value": 10
+                },
+                {
+                  "name": "Fuel",
+                  "value": 60
+                }
+              ]
+            },
+            "info": {
+              "exists": false,
+              "text": null,
+              "icon": {}
+            },
+            "meta": {
+              "exists": true,
+              "items": ["90.869 km", "Sedan", "Automatic", "4cyl 2.0L Petrol"]
+            },
+            "price": {
+              "exists": true,
+              "value": 5000,
+              "weekly_value": 146
+            }
+          }
+        },
+        {
+          "id": "cars_for_sale__mitsubishi",
+          "name": "Mitsubishi Lancer",
+          "description": "2015 Model",
+          "category_id": 1,
+          "thumbnail": {
+            "dir": "cars",
+            "filename": "car_2_mitsubishi.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": false,
+              "name": null,
+              "avatar": {}
+            },
+            "rating": {
+              "exists": false,
+              "value": null,
+              "review_amount": null
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 70
+                },
+                {
+                  "name": "%s Maintenance",
+                  "value": 14
+                },
+                {
+                  "name": "%s Insurance",
+                  "value": 19
+                },
+                {
+                  "name": "%s CTP",
+                  "value": 14
+                },
+                {
+                  "name": "%s Registration",
+                  "value": 10
+                },
+                {
+                  "name": "Fuel",
+                  "value": 60
+                }
+              ]
+            },
+            "info": {
+              "exists": false,
+              "text": null,
+              "icon": {}
+            },
+            "meta": {
+              "exists": true,
+              "items": ["43.738 km", "Sedan", "Automatic", "4cyl 2.0L Petrol"]
+            },
+            "price": {
+              "exists": true,
+              "value": 15000,
+              "weekly_value": 187
+            }
+          }
+        },
+        {
+          "id": "cars_for_sale__toyota",
+          "name": "Toyota Hilux",
+          "description": "2011 Model",
+          "category_id": 1,
+          "thumbnail": {
+            "dir": "cars",
+            "filename": "car_3_toyota.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": false,
+              "name": null,
+              "avatar": {}
+            },
+            "rating": {
+              "exists": false,
+              "value": null,
+              "review_amount": null
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 116
+                },
+                {
+                  "name": "%s Maintenance",
+                  "value": 14
+                },
+                {
+                  "name": "%s Insurance",
+                  "value": 19
+                },
+                {
+                  "name": "%s CTP",
+                  "value": 14
+                },
+                {
+                  "name": "%s Registration",
+                  "value": 15
+                },
+                {
+                  "name": "Fuel",
+                  "value": 80
+                }
+              ]
+            },
+            "info": {
+              "exists": false,
+              "text": null,
+              "icon": {}
+            },
+            "meta": {
+              "exists": true,
+              "items": ["288.634 km", "Cab Chasis", "Manual", "4cyl 3.0L Turbo Diesel"]
+            },
+            "price": {
+              "exists": true,
+              "value": 25000,
+              "weekly_value": 258
+            }
+          }
+        },
+        {
+          "id": "cars_for_sale__nissan",
+          "name": "Nissan Z",
+          "description": "2012 Model",
+          "category_id": 1,
+          "thumbnail": {
+            "dir": "cars",
+            "filename": "car_4_nissan.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": false,
+              "name": null,
+              "avatar": {}
+            },
+            "rating": {
+              "exists": false,
+              "value": null,
+              "review_amount": null
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 136
+                },
+                {
+                  "name": "%s Maintenance",
+                  "value": 19
+                },
+                {
+                  "name": "%s Insurance",
+                  "value": 29
+                },
+                {
+                  "name": "%s CTP",
+                  "value": 14
+                },
+                {
+                  "name": "%s Registration",
+                  "value": 10
+                },
+                {
+                  "name": "Fuel",
+                  "value": 80
+                }
+              ]
+            },
+            "info": {
+              "exists": false,
+              "text": null,
+              "icon": {}
+            },
+            "meta": {
+              "exists": true,
+              "items": ["131.256 km", "Coupe", "Automatic", "6cyl 3.7L Petrol"]
+            },
+            "price": {
+              "exists": true,
+              "value": 30000,
+              "weekly_value": 288
+            }
+          }
+        },
+        {
+          "id": "cars_for_sale__vw",
+          "name": "Volkswagen Amarok",
+          "description": "2018 Model",
+          "category_id": 1,
+          "thumbnail": {
+            "dir": "cars",
+            "filename": "car_5_vw.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": false,
+              "name": null,
+              "avatar": {}
+            },
+            "rating": {
+              "exists": false,
+              "value": null,
+              "review_amount": null
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 199
+                },
+                {
+                  "name": "%s Maintenance",
+                  "value": 19
+                },
+                {
+                  "name": "%s Insurance",
+                  "value": 29
+                },
+                {
+                  "name": "%s CTP",
+                  "value": 14
+                },
+                {
+                  "name": "%s Registration",
+                  "value": 15
+                },
+                {
+                  "name": "Fuel",
+                  "value": 80
+                }
+              ]
+            },
+            "info": {
+              "exists": false,
+              "text": null,
+              "icon": {}
+            },
+            "meta": {
+              "exists": true,
+              "items": ["90.552 km", "Ute", "Automatic", "6cyl 3.0L Turbo Diesel"]
+            },
+            "price": {
+              "exists": true,
+              "value": 44880,
+              "weekly_value": 356
+            }
+          }
+        },
+        {
+          "id": "cars_for_sale__mustang",
+          "name": "Ford Mustang",
+          "description": "2016 Model",
+          "category_id": 1,
+          "thumbnail": {
+            "dir": "cars",
+            "filename": "car_6_mustang.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": false,
+              "name": null,
+              "avatar": {}
+            },
+            "rating": {
+              "exists": false,
+              "value": null,
+              "review_amount": null
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 288.55
+                },
+                {
+                  "name": "%s Maintenance",
+                  "value": 30
+                },
+                {
+                  "name": "%s Insurance",
+                  "value": 35
+                },
+                {
+                  "name": "%s CTP",
+                  "value": 14
+                },
+                {
+                  "name": "%s Registration",
+                  "value": 15
+                },
+                {
+                  "name": "Fuel",
+                  "value": 100
+                }
+              ]
+            },
+            "info": {
+              "exists": false,
+              "text": null,
+              "icon": {}
+            },
+            "meta": {
+              "exists": true,
+              "items": ["7.552 km", "Coupe", "Automatic", "8cyl 5.0L Petrol"]
+            },
+            "price": {
+              "exists": true,
+              "value": 57888,
+              "weekly_value": 482.55
+            }
+          }
+        },
+        {
+          "id": "cars_for_sale__audi",
+          "name": "Audi RS5",
+          "description": "2018 Model",
+          "category_id": 1,
+          "thumbnail": {
+            "dir": "cars",
+            "filename": "car_7_audi.jpg"
+          },
+          "options": {
+            "agent": {
+              "exists": false,
+              "name": null,
+              "avatar": {}
+            },
+            "rating": {
+              "exists": false,
+              "value": null,
+              "review_amount": null
+            },
+            "tooltip": {
+              "exists": true,
+              "data": [
+                {
+                  "name": "%s Payment",
+                  "value": 603.65
+                },
+                {
+                  "name": "%s Maintenance",
+                  "value": 50
+                },
+                {
+                  "name": "%s Insurance",
+                  "value": 50
+                },
+                {
+                  "name": "%s CTP",
+                  "value": 14
+                },
+                {
+                  "name": "%s Registration",
+                  "value": 15
+                },
+                {
+                  "name": "Fuel",
+                  "value": 80
+                }
+              ]
+            },
+            "info": {
+              "exists": false,
+              "text": null,
+              "icon": {}
+            },
+            "meta": {
+              "exists": true,
+              "items": ["12.568 km", "Coupe", "Automatic", "6cyl 2.9L Turbo Petrol"]
+            },
+            "price": {
+              "exists": true,
+              "value": 130000,
+              "weekly_value": 812.65
+            }
+          }
+        }
+      ]
+    },
+    "fashion": {
+      "screen_id": 4,
+      "male": [
+        {
+          "id": "male_1",
+          "category_id": 2,
+          "weekly_price": 11.50,
+          "data": [
+            {
+              "id": "fashion__basic-top",
+              "name": "Basic Top",
+              "description": "Factorie",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "3_factorie.jpg"
+              },
+              "price": 20
+            },
+            {
+              "id": "fashion__basic-shorts",
+              "name": "Basic Shorts",
+              "description": "Fila",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "3_fila.jpg"
+              },
+              "price": 25
+            },
+            {
+              "id": "fashion__basic-sunglasses",
+              "name": "Sunglasses",
+              "description": "Chemist Warehouse",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "3_chemist.jpg"
+              },
+              "price": 15
+            },
+            {
+              "id": "fashion__basic-sneakers",
+              "name": "White Sneakers",
+              "description": "Big W",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "3_fila.jpg"
+              },
+              "price": 27
+            }
+          ]
+        },
+        {
+          "id": "male_2",
+          "weekly_price": 40,
+          "category_id": 2,
+          "data": [
+            {
+              "id": "fashion__clash-shirt",
+              "name": "Clash Shirt",
+              "description": "Nike",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "2_nike.jpg"
+              },
+              "price": 50
+            },
+            {
+              "id": "fashion__flex-shorts",
+              "name": "Plain Flex Shorts",
+              "description": "Tommy Hilfinger",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "2_tommy.jpg"
+              },
+              "price": 65
+            },
+            {
+              "id": "fashion__square-frame-sunglasses",
+              "name": "Square frame sunglasses",
+              "description": "Gucci",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "2_gucci.jpg"
+              },
+              "price": 185
+            },
+            {
+              "id": "fashion__nmd-sneakers",
+              "name": "NMD R1 Shoes",
+              "description": "Adidas",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "2_adidas.jpg"
+              },
+              "price": 200
+            }
+          ]
+        },
+        {
+          "id": "male_3",
+          "weekly_price": 115,
+          "category_id": 2,
+          "data": [
+            {
+              "id": "fashion__versace-shirt",
+              "name": "Medusa Logo T-Shirt",
+              "description": "Versace",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "1_versace.jpg"
+              },
+              "price": 460
+            },
+            {
+              "id": "fashion__flex-shorts-2",
+              "name": "Plain Flex Shorts",
+              "description": "Tommy Hilfinger",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "1_tommy.jpg"
+              },
+              "price": 120
+            },
+            {
+              "id": "fashion__square-frame-sunglasses-2",
+              "name": "Square frame sunglasses",
+              "description": "Gucci",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "1_gucci.jpg"
+              },
+              "price": 520
+            },
+            {
+              "id": "fashion__leather-sneakers",
+              "name": "Chunky Leather Sneakers",
+              "description": "Calvin Klein",
+              "thumbnail": {
+                "dir": "male",
+                "filename": "1_calvin.jpg"
+              },
+              "price": 200
+            }
+          ]
+        }
+      ],
+      "female": [
+        {
+          "id": "female_1",
+          "weekly_price": 11.50,
+          "category_id": 2,
+          "data": [
+            {
+              "id": "fashion__curved-tunic",
+              "name": "Curved Hem Tunic",
+              "description": "Kmart",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "3_kmart.jpg"
+              },
+              "price": 10
+            },
+            {
+              "id": "fashion__basic-shorts-female",
+              "name": "Basic Shorts",
+              "description": "Target",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "3_target.jpg"
+              },
+              "price": 10
+            },
+            {
+              "id": "fashion__timeless-pouch",
+              "name": "Timeless Crossbody Pouch",
+              "description": "Kmart",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "3_kmart-pouch.jpg"
+              },
+              "price": 8
+            },
+            {
+              "id": "fashion__white-sneakers-female",
+              "name": "White Sneakers",
+              "description": "Big W",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "3_bigw.jpg"
+              },
+              "price": 25
+            }
+          ]
+        },
+        {
+          "id": "female_2",
+          "weekly_price": 40,
+          "category_id": 2,
+          "data": [
+            {
+              "id": "fashion__rebel-cotton",
+              "name": "Rebel Cotton Shirt",
+              "description": "Nike",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "2_nike.jpg"
+              },
+              "price": 50
+            },
+            {
+              "id": "fashion__swoosh-shorts",
+              "name": "Swoosh Wooven Shorts",
+              "description": "Nike",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "2_nike-shorts.jpg"
+              },
+              "price": 45
+            },
+            {
+              "id": "fashion__monogram-bag",
+              "name": "Monogram Crossbody Bag",
+              "description": "Colette Hayman",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "2_colette.jpg"
+              },
+              "price": 50
+            },
+            {
+              "id": "fashion__sleek-shoes",
+              "name": "Sleek Super Shoes",
+              "description": "Adidas",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "2_adidas.jpg"
+              },
+              "price": 120
+            }
+          ]
+        },
+        {
+          "id": "female_3",
+          "weekly_price": 115,
+          "category_id": 2,
+          "data": [
+            {
+              "id": "fashion__cotton-crewneck",
+              "name": "Cotton Crewneck T-Shirt",
+              "description": "Ralph Lauren",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "1_ralph.jpg"
+              },
+              "price": 120
+            },
+            {
+              "id": "fashion__denim-jeans",
+              "name": "Denim Jeans",
+              "description": "NYDJ",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "1_nydj.jpg"
+              },
+              "price": 276
+            },
+            {
+              "id": "fashion__mini-pochette",
+              "name": "Mini Pochette",
+              "description": "Louis Vuitton",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "1_louis.jpg"
+              },
+              "price": 520
+            },
+            {
+              "id": "fashion__leather-sneakers-female",
+              "name": "Chunky Leather Sneakers",
+              "description": "Calvin Klein",
+              "thumbnail": {
+                "dir": "female",
+                "filename": "1_calvin.jpg"
+              },
+              "price": 200
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
