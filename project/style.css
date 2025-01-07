@@ -34,35 +34,87 @@
     bottom: 0;
     left: 0;
     right: 0;
-    border-top-left-radius: 30px;  /* Radius on the top-left corner */
+    border-top-left-radius: 30px;  
     border-top-right-radius: 30px;
+   
     
   }
 
   #screen2 .button_start{
     background-color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+
+  .startButton{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
   }
 
   #screen2 .startButton{
     background-color: #BE1E2D;
+    border: none;
     width:150px;
-    border-top-left-radius: 10px;  /* Radius on the top-left corner */
+    border-top-left-radius: 10px;  
     border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
   }
 
   #screen2 .button_start::after{
-    content: "1 of 3";
+    content: "1 of 2";
     position: absolute;
     right: 5%;
     top: 33%;
     font-size: 1.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+  }
+
+  #screen2 .backButton {
+    content: "back";  
+    display: inline-block;
+    position: absolute;
+    padding: 5px 10px;
+    background-color: #2e3d2f; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    left: 5%;
+    bottom: 32%;
+    width: 60px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+  }
+
+  #screen3 .backButton {
+    content: "back";  
+    display: inline-block;
+    position: absolute;
+    padding: 5px 10px;
+    background-color: #2e3d2f; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    left: 5%;
+    bottom: 32%;
+    width: 60px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
   }
 
   .button_start button{
     padding: 10px;
-    border-top-left-radius: 10px;  /* Radius on the top-left corner */
+    border-top-left-radius: 10px;  
     border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 150px;
     color:black;
     font-size: 1rem;
@@ -115,7 +167,7 @@
   }
   .card span{
     position: absolute;
-    top: -130%;
+    top: -120%;
     font-family: 'Rubik', sans-serif;
     color: rgb(29, 24, 24) ;
     left: 5%;
@@ -192,7 +244,13 @@
     background-color: white;
     border-radius: 20px;
   }
+  
+  #screen3 .other{
+    position: absolute;
+    top: 88%;
+    bottom:-40%;
   }
+
   .heading{
     display: flex;
     justify-content: center;
@@ -267,3 +325,188 @@
     opacity: 0.7;
   }
   
+
+  .image-container2 {
+    position: relative;
+    display: inline-block;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    margin-left: 25%;
+  }
+  
+  #head3 {
+    display: block;
+    width: 100%; 
+  }
+  
+  .image-container2::before {
+    content: '';
+    position: absolute;
+    top: -120%;
+    left: -7%;
+    width: 200px; 
+    height: 40px;
+    background-image: url(/Vector.png);
+    background-size: cover; 
+    background-position: center;
+    z-index: 1; 
+  }
+  
+  #screen3 .option{
+    background-color: transparent;
+    top: 70%;
+    left: 0;
+    display: flex;
+  }
+
+  #screen4 .option{
+    background-color: transparent;
+    top: 70%;
+    left: 0;
+    display: flex;
+  }
+
+  #screen4 .property{
+    margin-bottom: 120px;
+    
+  }
+
+  #screen4 h1{
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    padding: 20px;
+    font-size:35px;
+    color: rgb(22, 7, 7);
+  }
+
+  #screen4 .property-picture.clicked::before{
+    background-color: transparent;
+  }
+
+  #screen4 .property-picture.clicked{
+    background-color: transparent;
+  }
+
+  #screen4 .checkmark-overlay{
+    display: none;
+  }
+
+  #screen4 .other{
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  .selected-item h3{
+    display: none;
+  }
+
+  #screen4 .payment{
+    right: 10%;
+    top: 90%;
+  }
+
+  #screen3 #agentAvatar{
+    display: none;
+  }
+
+  #screen3{
+    background-color:#9da8b848;
+    padding-bottom: 100px;
+  }
+
+  #screen3  .option li{
+    margin-right: 20px;
+    font-size: 9px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+  }
+
+  #screen4 .option li{
+    margin-right: 20px;
+    font-size: 9px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+  }
+
+  #screen3 .option{
+    padding: 0;
+    margin: 15px;
+  }
+
+  #screen4 .option{
+    padding: 0;
+    margin: 15px;
+  }
+
+  .payment{
+    top: 82%;
+  }
+
+  #screen3 .other h2{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+  }
+
+  #screen3 .other p{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+  }
+
+  #screen3 .inPay{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+  }
+
+  #screen3 .button_start{
+    background-color: rgb(255, 255, 255);
+  }
+
+  #screen3 .startButton{
+    background-color: #4371b6;
+    border: none;
+    width:150px;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+    color: white;
+  }
+
+  #screen3 .button_start::after{
+    content: "2 of 2";
+    position: absolute;
+    right: 5%;
+    top: 33%;
+    font-size: 1.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+  }
+
+  .button_start button{
+    padding: 10px;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+    width: 150px;
+    color:black;
+    font-size: 1rem;
+  }
+
+  #screen2 .startButton.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+
+  #screen3 .startButton.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  #screen4{
+    height: 100vh;
+    background-color: #4371b6;
+    margin: 0;
+    padding: 0;
+  }
+}
