@@ -2,11 +2,6 @@ const screen2 = document.getElementById("screen2");
 const screen3 = document.getElementById("screen3");
 const screen4 = document.getElementById("screen4");
 
-/**
- * Generally, avoid using classes to fetch elements that you're doing something with in Javascript
- * This is simply because a class can change (due to some css changes or whatever) and it will break your javascript code
- * Consider using `data` attributes as identifiers instead
- */
 const screen2Button = document.querySelector("[data-screen='screen2'] [data-role='startButton']");
 const screen3Button = document.querySelector("[data-screen='screen3'] [data-role='startButton']");
 
@@ -14,21 +9,15 @@ const selectedItemsDiv = document.getElementById("selectedItems");
 let selectedPropertyHTML = '';
 let selectedCarHTML = '';
 
-/**
- * There's a note about this somewhere below, search for `toggleDisabled`
- */
 toggleDisabled(screen2Button, true);
 toggleDisabled(screen3Button, true);
 
 let currentScreen = 1;
 const totalScreens = 4;
 
-// this is not needed, add a class that contains display: none; to all elements except the first one
-
 screen2.className = "hidden";
 screen3.className = "hidden";
 screen4.className = "hidden";
-// ----
 
 function toggleDisabled(element, isDisabled) {
   if (isDisabled) {
@@ -40,7 +29,7 @@ function toggleDisabled(element, isDisabled) {
   }
 }
 
-function addCheckmarkOverlay(propertyDiv, screen, button, selectedHTML, toggleButton) {
+function addCheckmarkOverlay(propertyDiv, screen, button) {
   const allPropertyDivs = screen.querySelectorAll(".property");
   allPropertyDivs.forEach(div => {
     const propPic = div.querySelector(".property-picture");
@@ -86,9 +75,6 @@ function getStarRating(ratingValue) {
   return fullStars + emptyStars;
 }
 
-// Instead of doing this, research how to create a global event listener (you add the event listener to document, and then check what the target is
-// if the target is this particular button, then do something)
-// you might need to add an attribute to each button to specify which step it's for e.g. `<button data-step="1"></button>` (or something like this)
 document.addEventListener("click", function(event) {
   if (event.target.matches(".startButton")) {
 
@@ -123,11 +109,8 @@ document.addEventListener("click", function(event) {
     document.getElementById(`screen${currentScreen}`).style.display = "block";
 
     console.log(`Current Screen: ${currentScreen}`);
-  }
-});
+  } else if (event.target.matches(".backButton")) {
 
-document.querySelectorAll(".backButton").forEach(button => {
-  button.addEventListener("click", function () {
     document.getElementById(`screen${currentScreen}`).style.display = "none";
 
     currentScreen--;
@@ -138,8 +121,8 @@ document.querySelectorAll(".backButton").forEach(button => {
     document.getElementById(`screen${currentScreen}`).style.display = "block";
 
     console.log(`Current Screen: ${currentScreen}`);
-  })
-})
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const screen2 = document.getElementById("screen2");
@@ -157,6 +140,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const imagePath = `${property.thumbnail.dir}/${property.thumbnail.filename}`;
 
+        /**
+         * function composeTemplate(nesto, img) {
+         *
+         *  return `ovo dole ispod sto je`
+         *
+         * }
+         */
+
+        // tODO: research what ternary is in javascript
+
         propertyDiv.innerHTML = `
           <div class="property">
             <div class="property-picture">
@@ -164,8 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="card">
               <div class="payment">
-                <p class="inPay">$${property.options.price.weekly_value}</p>
-                <p class="inPay2">per week</p>
+                <p class="inPay">$${property.options.price.weekly_value ? property.options.price.weekly_value : property.options.price.value}</p>
+                ${ property.options.price.weekly_value && '<p class="inPay2">per week</p>'}
               </div>
               <div class="other">
                 <h2>${property.name}</h2>
@@ -188,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const imageElement = propertyDiv.querySelector(".property-picture");
         imageElement.addEventListener("click", () => {
-          addCheckmarkOverlay(propertyDiv, screen2, screen2Button, selectedPropertyHTML, toggleDisabled);
+          addCheckmarkOverlay(propertyDiv, screen2, screen2Button);
         });
 
         screen2.appendChild(propertyDiv);
@@ -222,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const imageElement2 = carDiv.querySelector(".property-picture");
         imageElement2.addEventListener("click", () => {
-          addCheckmarkOverlay(carDiv, screen3, screen3Button, selectedPropertyHTML, toggleDisabled);
+          addCheckmarkOverlay(carDiv, screen3, screen3Button);
         });
 
         screen3.appendChild(carDiv);
