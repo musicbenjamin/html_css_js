@@ -19,6 +19,49 @@ screen2.className = "hidden";
 screen3.className = "hidden";
 screen4.className = "hidden";
 
+function composeTemplate(data, img) {
+  return `
+    <div class="property">
+      <div class="property-picture">
+        <img src="${img}" alt="${data.name}" class="property-image">
+      </div>
+      <div class="card">
+        <div class="payment">
+          <p class="inPay">
+            $${data.options.price.weekly_value ? data.options.price.weekly_value : data.options.price.value}
+          </p>
+          ${data.options.price.weekly_value ? '<p class="inPay2">per week</p>' : ''}
+        </div>
+        <div class="other">
+          <h2>${data.name}</h2>
+
+          ${data.options.agent && data.options.agent.name 
+            ? `<p>
+                <img src="avatars/pete_agent.png" alt="Agent Avatar" class="agent-avatar">
+                ${data.options.agent.name}
+              </p>`
+            : ''}
+
+          ${data.options.info && data.options.info.text 
+            ? `<span>
+                <img src="svg/icons/icon-location.svg" class="icon-location">
+                ${data.options.info.text}
+              </span>`
+            : ''}
+
+          ${data.options.rating && data.options.rating.value && data.options.rating.review_amount 
+            ? `<p class="revies">
+                ${getStarRating(data.options.rating.value)}
+                (${data.options.rating.review_amount} reviews)
+              </p>` 
+            : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+
 function toggleDisabled(element, isDisabled) {
   if (isDisabled) {
     element.disabled = true;
@@ -141,43 +184,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const imagePath = `${property.thumbnail.dir}/${property.thumbnail.filename}`;
 
         /**
-         * function composeTemplate(nesto, img) {
+         * function composeTemplate(something, img) {
          *
-         *  return `ovo dole ispod sto je`
+         *  return `down content`
          *
          * }
          */
 
-        // tODO: research what ternary is in javascript
+        propertyDiv.innerHTML = composeTemplate(property, imagePath);
 
-        propertyDiv.innerHTML = `
-          <div class="property">
-            <div class="property-picture">
-              <img src="${imagePath}" alt="${property.name}" class="property-image" id="slika1">
-            </div>
-            <div class="card">
-              <div class="payment">
-                <p class="inPay">$${property.options.price.weekly_value ? property.options.price.weekly_value : property.options.price.value}</p>
-                ${ property.options.price.weekly_value && '<p class="inPay2">per week</p>'}
-              </div>
-              <div class="other">
-                <h2>${property.name}</h2>
-                <p>
-                  <img src="avatars/pete_agent.png" alt="Agent Avatar" id="agentAvatar">
-                  ${property.options.agent.name}
-                </p>
-                <span>
-                  <img src="svg/icons/icon-location.svg" id="iconLocation">
-                  ${property.options.info.text}
-                </span>
-                <p class="revies">
-                  ${getStarRating(property.options.rating.value)}
-                  (${property.options.rating.review_amount} reviews)
-                </p>
-              </div>
-            </div>
-          </div>
-        `;
 
         const imageElement = propertyDiv.querySelector(".property-picture");
         imageElement.addEventListener("click", () => {
@@ -192,26 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
         carDiv.className = "property";
 
         const imagePath = `${car.thumbnail.dir}/${car.thumbnail.filename}`;
+        
+        carDiv.innerHTML = composeTemplate(car, imagePath);
 
-        carDiv.innerHTML = `
-          <div class="property">
-            <div class="property-picture">
-              <img src="${imagePath}" alt="${car.name}" class="property-image" id="slika1">
-            </div>
-            <div class="card">
-              <div class="payment">
-                <p class="inPay">$${car.options.price.value}</p>
-              </div>
-              <div class="other">
-                <h2>${car.name}</h2>
-                <p>${car.description}</p>
-                <ul class="option">
-                  ${car.options.meta.items.map(item => `<li>${item}</li>`).join("")}
-                </ul>
-              </div>
-            </div>
-          </div>
-        `;
 
         const imageElement2 = carDiv.querySelector(".property-picture");
         imageElement2.addEventListener("click", () => {
@@ -225,3 +223,14 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error loading JSON data:", error);
     });
 });
+
+
+
+
+
+
+
+
+
+
+
