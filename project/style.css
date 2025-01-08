@@ -8,7 +8,7 @@
   .container {
     padding: 10%;
     font-size: 16px;
-    font-family: Arial, sans-serif; 
+    font-family: Arial, sans-serif;
   }
 
   #screen1 h1 {
@@ -34,10 +34,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    border-top-left-radius: 30px;  
+    border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-   
-    
   }
 
   #screen2 .button_start{
@@ -184,6 +182,10 @@
     font-size: 0.8rem;
     font-weight: 400;
     color: #9b1010;
+  }
+
+  .hidden{
+    display: none;
   }
 
   .payment{

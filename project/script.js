@@ -1,44 +1,92 @@
 const screen2 = document.getElementById("screen2");
 const screen3 = document.getElementById("screen3");
 const screen4 = document.getElementById("screen4");
-const screen2Button = document.querySelector("#screen2 .startButton");
-const screen3Button = document.querySelector("#screen3 .startButton");
 
-let selectedPropertyHTML = ''; 
-let selectedCarHTML = ''; 
+const screen2Button = document.querySelector("[data-screen='screen2'] [data-role='startButton']");
+const screen3Button = document.querySelector("[data-screen='screen3'] [data-role='startButton']");
 
-screen2Button.disabled = true;
-screen3Button.disabled = true;
+const selectedItemsDiv = document.getElementById("selectedItems");
+let selectedPropertyHTML = '';
+let selectedCarHTML = '';
 
-screen2Button.classList.add("disabled");
-screen3Button.classList.add("disabled");
+toggleDisabled(screen2Button, true);
+toggleDisabled(screen3Button, true);
 
-let currentScreen = 1; 
-const totalScreens = 4; 
+let currentScreen = 1;
+const totalScreens = 4;
 
-for (let i = 1; i <= totalScreens; i++) {
-  if (i === 1) {
-    document.getElementById(`screen${i}`).style.display = "block";
+screen2.className = "hidden";
+screen3.className = "hidden";
+screen4.className = "hidden";
+
+function toggleDisabled(element, isDisabled) {
+  if (isDisabled) {
+    element.disabled = true;
+    element.classList.add("disabled");
   } else {
-    document.getElementById(`screen${i}`).style.display = "none";
+    element.disabled = false;
+    element.classList.remove("disabled");
   }
 }
 
-document.querySelectorAll(".startButton").forEach(button => {
-  button.addEventListener("click", function () {
+function addCheckmarkOverlay(propertyDiv, screen, button) {
+  const allPropertyDivs = screen.querySelectorAll(".property");
+  allPropertyDivs.forEach(div => {
+    const propPic = div.querySelector(".property-picture");
+    const checkmark = div.querySelector(".checkmark-overlay");
+    if (checkmark) {
+      checkmark.remove();
+    }
+    propPic.classList.remove("clicked");
+  });
+
+  const propPic = propertyDiv.querySelector(".property-picture");
+  const checkmarkOverlay = document.createElement("img");
+  checkmarkOverlay.src = "svg/icons/icon-checkmark.svg";
+  checkmarkOverlay.className = "checkmark-overlay";
+  propertyDiv.appendChild(checkmarkOverlay);
+
+  propPic.classList.add("clicked");
+
+  if (screen === screen2) {
+    selectedPropertyHTML = propertyDiv.innerHTML;
+  } else if (screen === screen3) {
+    selectedCarHTML = propertyDiv.innerHTML;
+  }
+  toggleDisabled(button, false);
+}
+
+function getStarRating(ratingValue) {
+
+  // also, name the pictures accordingly. "Star 3.png" is actually one filled star?
+  const fullStar = '<img src="full-star.png" id="star" alt="Full Star">';
+  const emptyStar = '<img src="empty-star.png" id="star" alt="Empty Star">';
+  let fullStars = '';
+  let emptyStars = '';
+
+  for (let i = 0; i < Math.floor(ratingValue); i++) {
+    fullStars += fullStar;
+  }
+
+  for (let i = 0; i < 5 - Math.floor(ratingValue); i++) {
+    emptyStars += emptyStar;
+  }
+
+  return fullStars + emptyStars;
+}
+
+document.addEventListener("click", function(event) {
+  if (event.target.matches(".startButton")) {
+
     document.getElementById(`screen${currentScreen}`).style.display = "none";
 
     currentScreen++;
-
     if (currentScreen > totalScreens) {
       currentScreen = 1;
     }
 
     if (currentScreen === 4) {
-      const selectedItemsDiv = document.getElementById("selectedItems");
-
-      // Display the full HTML of selected property and car
-      selectedItemsDiv.innerHTML = ''; // Clear previous selections
+      selectedItemsDiv.innerHTML = '';
       if (selectedPropertyHTML) {
         selectedItemsDiv.innerHTML += `
           <div class="selected-item">
@@ -61,49 +109,30 @@ document.querySelectorAll(".startButton").forEach(button => {
     document.getElementById(`screen${currentScreen}`).style.display = "block";
 
     console.log(`Current Screen: ${currentScreen}`);
-  });
-});
+  } else if (event.target.matches(".backButton")) {
 
-document.querySelectorAll(".backButton").forEach(button => {
-  button.addEventListener("click", function () {
     document.getElementById(`screen${currentScreen}`).style.display = "none";
 
     currentScreen--;
 
-    if (currentScreen > totalScreens) {
-      currentScreen == 1;
-    }
+    // what's the use-case here so that this if block is required?
+    // if we go `currentScreen--` WHEN does currentScreen ever become >= totalScreens? (so this reset becomes needed)
 
     document.getElementById(`screen${currentScreen}`).style.display = "block";
 
     console.log(`Current Screen: ${currentScreen}`);
-  })
-})
-
-function getStarRating(ratingValue) {
-  const fullStar = '<img src="Star 3.png" id="star" alt="Full Star">';
-  const emptyStar = '<img src="Star 5.png" id="star" alt="Empty Star">';
-  let fullStars = '';
-  let emptyStars = '';
-
-  for (let i = 0; i < Math.floor(ratingValue); i++) {
-    fullStars += fullStar;
   }
-
-  for (let i = 0; i < 5 - Math.floor(ratingValue); i++) {
-    emptyStars += emptyStar;
-  }
-
-  return fullStars + emptyStars;
-}
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const screen2 = document.getElementById("screen2");
+  const screen3 = document.getElementById("screen3");
 
   fetch("data.json")
     .then(response => response.json())
     .then(jsonData => {
       const realEstateData = jsonData.screens.realEstate.data;
+      const carsData = jsonData.screens.carsForSale.data;
 
       realEstateData.forEach(property => {
         const propertyDiv = document.createElement("div");
@@ -111,141 +140,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const imagePath = `${property.thumbnail.dir}/${property.thumbnail.filename}`;
 
+        /**
+         * function composeTemplate(nesto, img) {
+         *
+         *  return `ovo dole ispod sto je`
+         *
+         * }
+         */
+
+        // tODO: research what ternary is in javascript
+
         propertyDiv.innerHTML = `
-        <div class="property">
-          <div class="property-picture">
-            <img src="${imagePath}" alt="${property.name}" class="property-image" id="slika1">
-          </div>
-          <div class="card">
-            <div class="payment">
-              <p class="inPay">$${property.options.price.weekly_value}</p>
-              <p class="inPay2">per week</p>
+          <div class="property">
+            <div class="property-picture">
+              <img src="${imagePath}" alt="${property.name}" class="property-image" id="slika1">
             </div>
-            <div class="other">
-              <h2>${property.name}</h2>
-              <p>
-                <img src="avatars/pete_agent.png" alt="Agent Avatar" id="agentAvatar">
-                ${property.options.agent.name}
-              </p>
-              <span>
-                <img src="svg/icons/icon-location.svg" id="iconLocation">
-                ${property.options.info.text}
-              </span>
-              <p class="revies">
-                ${getStarRating(property.options.rating.value)}
-                (${property.options.rating.review_amount} reviews)
-              </p>
+            <div class="card">
+              <div class="payment">
+                <p class="inPay">$${property.options.price.weekly_value ? property.options.price.weekly_value : property.options.price.value}</p>
+                ${ property.options.price.weekly_value && '<p class="inPay2">per week</p>'}
+              </div>
+              <div class="other">
+                <h2>${property.name}</h2>
+                <p>
+                  <img src="avatars/pete_agent.png" alt="Agent Avatar" id="agentAvatar">
+                  ${property.options.agent.name}
+                </p>
+                <span>
+                  <img src="svg/icons/icon-location.svg" id="iconLocation">
+                  ${property.options.info.text}
+                </span>
+                <p class="revies">
+                  ${getStarRating(property.options.rating.value)}
+                  (${property.options.rating.review_amount} reviews)
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
 
         const imageElement = propertyDiv.querySelector(".property-picture");
-
         imageElement.addEventListener("click", () => {
-          const allPropertyDivs = screen2.querySelectorAll(".property");
-          allPropertyDivs.forEach(div => {
-            const propPic = div.querySelector(".property-picture");
-            const checkmark = div.querySelector(".checkmark-overlay");
-            if (checkmark) {
-              checkmark.remove();
-            }
-            propPic.classList.remove("clicked");
-            selectedPropertyHTML = propertyDiv.innerHTML;
-            screen2Button.disabled = false;
-            screen2Button.classList.remove("disabled");
-          });
-
-
-          const propPic = propertyDiv.querySelector(".property-picture");
-          const checkmarkOverlay = document.createElement("img");
-          checkmarkOverlay.src = "svg/icons/icon-checkmark.svg";
-          checkmarkOverlay.className = "checkmark-overlay";
-          propertyDiv.appendChild(checkmarkOverlay);
-
-          propPic.classList.add("clicked"); 
+          addCheckmarkOverlay(propertyDiv, screen2, screen2Button);
         });
 
         screen2.appendChild(propertyDiv);
+      });
+
+      carsData.forEach(car => {
+        const carDiv = document.createElement("div");
+        carDiv.className = "property";
+
+        const imagePath = `${car.thumbnail.dir}/${car.thumbnail.filename}`;
+
+        carDiv.innerHTML = `
+          <div class="property">
+            <div class="property-picture">
+              <img src="${imagePath}" alt="${car.name}" class="property-image" id="slika1">
+            </div>
+            <div class="card">
+              <div class="payment">
+                <p class="inPay">$${car.options.price.value}</p>
+              </div>
+              <div class="other">
+                <h2>${car.name}</h2>
+                <p>${car.description}</p>
+                <ul class="option">
+                  ${car.options.meta.items.map(item => `<li>${item}</li>`).join("")}
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const imageElement2 = carDiv.querySelector(".property-picture");
+        imageElement2.addEventListener("click", () => {
+          addCheckmarkOverlay(carDiv, screen3, screen3Button);
+        });
+
+        screen3.appendChild(carDiv);
       });
     })
     .catch(error => {
       console.error("Error loading JSON data:", error);
     });
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const screen3 = document.getElementById("screen3");
-
-  fetch("data.json")
-    .then(response => response.json())
-    .then(jsonData => {
-      console.log(jsonData); 
-      if (!jsonData.screens || !jsonData.screens.carsForSale || !jsonData.screens.carsForSale.data) {
-        console.error("Cars for sale data is not available in the JSON.");
-        return;
-      }
-
-      const carsData = jsonData.screens.carsForSale.data;
-
-      carsData.forEach(car => {
-        const carDiv = document.createElement("div");
-        carDiv.className = "property"; 
-
-        const imagePath = `${car.thumbnail.dir}/${car.thumbnail.filename}`;
-
-        carDiv.innerHTML = `
-        <div class="property">
-          <div class="property-picture">
-            <img src="${imagePath}" alt="${car.name}" class="property-image" id="slika1">
-          </div>
-          <div class="card">
-            <div class="payment">
-              <p class="inPay">$${car.options.price.value}</p >
-            </div>
-            <div class="other">
-              <h2>${car.name}</h2>
-              <p>${car.description}</p>
-              <ul class="option">
-                ${car.options.meta.items.map(item => `<li>${item}</li>`).join("")}
-              </ul>
-            </div>
-          </div>
-        </div>
-      `;
-        
-        const imageElement = carDiv.querySelector(".property-picture");
-
-        imageElement.addEventListener("click", () => {
-          const allCarDivs = screen3.querySelectorAll(".property");
-          allCarDivs.forEach(div => {
-            const carPic = div.querySelector(".property-picture");
-            const checkmark = div.querySelector(".checkmark-overlay");
-            if (checkmark) {
-              checkmark.remove();
-            }
-            carPic.classList.remove("clicked");
-          });
-
-          const carPic = carDiv.querySelector(".property-picture");
-          const checkmarkOverlay = document.createElement("img");
-          checkmarkOverlay.src = "svg/icons/icon-checkmark.svg";
-          checkmarkOverlay.className = "checkmark-overlay";
-          carDiv.appendChild(checkmarkOverlay);
-
-          carPic.classList.add("clicked"); 
-          selectedCarHTML = carDiv.innerHTML;
-          screen3Button.disabled = false;
-          screen3Button.classList.remove("disabled");
-        });
-
-        screen3.appendChild(carDiv);
-      });
-    })
-    .catch(error => console.error("Error fetching data:", error));
-});
-
-
-
-
-
