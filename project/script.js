@@ -35,25 +35,25 @@ function composeTemplate(data, img) {
         <div class="other">
           <h2>${data.name}</h2>
 
-          ${data.options.agent && data.options.agent.name 
+          ${data.options.agent && data.options.agent.name
             ? `<p>
                 <img src="avatars/pete_agent.png" alt="Agent Avatar" class="agent-avatar">
                 ${data.options.agent.name}
               </p>`
             : ''}
 
-          ${data.options.info && data.options.info.text 
+          ${data.options.info && data.options.info.text
             ? `<span>
                 <img src="svg/icons/icon-location.svg" class="icon-location">
                 ${data.options.info.text}
               </span>`
             : ''}
 
-          ${data.options.rating && data.options.rating.value && data.options.rating.review_amount 
+          ${data.options.rating && data.options.rating.value && data.options.rating.review_amount
             ? `<p class="revies">
                 ${getStarRating(data.options.rating.value)}
                 (${data.options.rating.review_amount} reviews)
-              </p>` 
+              </p>`
             : ''}
         </div>
       </div>
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         carDiv.className = "property";
 
         const imagePath = `${car.thumbnail.dir}/${car.thumbnail.filename}`;
-        
+
         carDiv.innerHTML = composeTemplate(car, imagePath);
 
 
